@@ -1,5 +1,5 @@
 import { createTheme, responsiveFontSizes, Theme, ThemeOptions, } from '@mui/material/styles'
-import { Roboto } from '@next/font/google'
+import { Roboto } from 'next/font/google'
 
 const fontFamily = Roboto({ weight: ['400', '500', '700'], subsets: ['latin'] })
 const fontFamilyName = fontFamily.style.fontFamily
@@ -38,6 +38,15 @@ export const themeOptions: ThemeOptions = {
             defaultProps: {
                 underline: 'none',
             },
+        },
+        MuiMenu: {
+            styleOverrides: {
+                root: {
+                    "& .MuiPaper-root": {
+                        backgroundColor: '#5E548E'
+                    }
+                }
+            }
         },
         MuiTab: {
             styleOverrides: {

@@ -14,42 +14,53 @@ export default function Hero() {
     <>
       <Box
         sx={{
-          position: "absolute" as "absolute",
-          flexDirection: "column",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%,-50%)",
-          fontSize: theme.spacing(30),
-          fontWeight: 700,
-          color: theme.palette.secondary.light,
-          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "100%",
+          height: `calc(100vh - (4 * ${theme.spacing(5)}))`,
+          padding: theme.spacing(6),
         }}
       >
-        <Typography variant="h2" sx={{ color: theme.palette.secondary.light }}>
-          Hi There!{" "}
-          <span className={styles.wave} role="img" aria-labelledby="wave">
-            👋🏻
-          </span>
-        </Typography>
-        <Typography variant="h2">
-          I am
-          <strong style={{ color: theme.palette.primary.light }}>
-            {" "}
-            Lachezar Marinov
-          </strong>
-        </Typography>
         <Box
           sx={{
-            textAlign: "left",
-            marginTop: theme.spacing(2),
-            fontSize: theme.spacing(3.5),
-            color: theme.palette.secondary.dark,
+            position: "relative" as "relative",
+            flexDirection: "column",
+            fontSize: theme.spacing(30),
+            fontWeight: 700,
+            color: theme.palette.secondary.light,
+            zIndex: 1000,
           }}
         >
-          <Type />
+          <Typography
+            variant="h2"
+            sx={{ color: theme.palette.secondary.light }}
+          >
+            Hi There!{" "}
+            <span className={styles.wave} role="img" aria-labelledby="wave">
+              👋🏻
+            </span>
+          </Typography>
+          <Typography variant="h2">
+            I am
+            <strong style={{ color: theme.palette.primary.light }}>
+              {" "}
+              Lachezar Marinov
+            </strong>
+          </Typography>
+          <Box
+            sx={{
+              textAlign: "left",
+              marginTop: theme.spacing(2),
+              fontSize: theme.spacing(3.5),
+              color: theme.palette.secondary.dark,
+            }}
+          >
+            <Type />
+          </Box>
         </Box>
       </Box>
-      <canvas className={styles.canvas} id="canvas" />
+      <canvas className={styles.canvas} id="canvas"></canvas>
     </>
   );
 }
