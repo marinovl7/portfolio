@@ -18,8 +18,6 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import BallotIcon from "@mui/icons-material/Ballot";
 import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
 
-const pages = ["About", "Experience", "Projects"];
-
 export default function ResponsiveAppBar() {
   const theme = useTheme();
 
@@ -90,8 +88,6 @@ export default function ResponsiveAppBar() {
                 vertical: "bottom",
                 horizontal: "left",
               }}
-              keepMounted
-              disableScrollLock
               transformOrigin={{
                 vertical: "top",
                 horizontal: "left",
@@ -103,7 +99,7 @@ export default function ResponsiveAppBar() {
               }}
             >
               <MenuItem
-                key={"About"}
+                key={"Skills"}
                 onClick={handleCloseNavMenu}
                 sx={{
                   display: "flex",
@@ -113,7 +109,7 @@ export default function ResponsiveAppBar() {
                 }}
               >
                 <PermIdentityIcon />
-                <Typography textAlign="center">About</Typography>
+                <Typography textAlign="center">Skills</Typography>
               </MenuItem>
               <MenuItem
                 key={"Experience"}
@@ -178,7 +174,7 @@ export default function ResponsiveAppBar() {
             }}
           >
             <Button
-              key={"About"}
+              key={"Skills"}
               onClick={handleCloseNavMenu}
               sx={{
                 my: 2,
@@ -191,7 +187,7 @@ export default function ResponsiveAppBar() {
               }}
             >
               <PermIdentityIcon />
-              About
+              Skills
             </Button>
             <Button
               key={"Experience"}
