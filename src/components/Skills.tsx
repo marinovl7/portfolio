@@ -1,67 +1,12 @@
 import { Box, Tooltip, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
+import { techStackData } from "@/lib/data";
 
 export interface SkillsIcon {
   iconLocation: string;
   name: string;
   size?: { height: number; width: number };
 }
-
-interface TechStack {
-  name: string;
-  skills: SkillsIcon[];
-}
-
-const programmingLanguages: SkillsIcon[] = [
-  { iconLocation: "/typescript-icon.svg", name: "Typescript" },
-  { iconLocation: "/javascript.svg", name: "Javascript" },
-  { iconLocation: "/java.svg", name: "Java" },
-  { iconLocation: "/html-5.svg", name: "HTML5" },
-  { iconLocation: "/css-3.svg", name: "CSS3" },
-];
-
-const frameworks: SkillsIcon[] = [
-  { iconLocation: "/react.svg", name: "React" },
-  { iconLocation: "/angular-icon.svg", name: "Angular" },
-  { iconLocation: "/nextjs-icon.svg", name: "Next.js" },
-  { iconLocation: "/nodejs.svg", name: "Node.js" },
-  { iconLocation: "/nestjs.svg", name: "Nest.js" },
-  { iconLocation: "/serverless.svg", name: "Serverless" },
-  { iconLocation: "/spring-icon.svg", name: "Spring Boot" },
-];
-
-const libraries: SkillsIcon[] = [
-  { iconLocation: "/material-ui.svg", name: "Material UI" },
-  { iconLocation: "/redux.svg", name: "Redux" },
-  { iconLocation: "/reactivex.svg", name: "RxJs" },
-  { iconLocation: "/badge.svg", name: "NgRx" },
-];
-
-const design: SkillsIcon[] = [{ iconLocation: "/figma.svg", name: "Figma" }];
-
-const technical: SkillsIcon[] = [
-  { iconLocation: "/aws.svg", name: "AWS" },
-  { iconLocation: "/git-icon.svg", name: "Git" },
-  { iconLocation: "/linux-tux.svg", name: "Linux" },
-];
-
-const dataManagement: SkillsIcon[] = [
-  { iconLocation: "/postgresql.svg", name: "PosgreSQL" },
-  {
-    iconLocation: "/Logo-Prisma.png",
-    name: "Prisma",
-    size: { height: 64, width: 108 },
-  },
-];
-
-const techStack: TechStack[] = [
-  { name: "Languages", skills: programmingLanguages },
-  { name: "Frameworks", skills: frameworks },
-  { name: "Libraries", skills: libraries },
-  { name: "Technical", skills: technical },
-  { name: "Databases", skills: dataManagement },
-  { name: "Design", skills: design },
-];
 
 export default function Skills() {
   const theme = useTheme();
@@ -110,7 +55,7 @@ export default function Skills() {
           </Typography>
         </Box>
 
-        {techStack.map((stack) => (
+        {techStackData.map((stack) => (
           <Box
             key={stack.name}
             sx={{
@@ -142,7 +87,7 @@ export default function Skills() {
               }}
             >
               {stack.skills.map((item) => (
-                <Tooltip title={item.name} key={item.name}>
+                <Tooltip title={item.name} key={item.name} arrow>
                   <Image
                     src={item.iconLocation}
                     width={item.size ? item.size.width : 64}

@@ -71,7 +71,7 @@ export default function SingleExperienceItem({
         }}
       >
         {skills.map((item) => (
-          <Tooltip title={item.name} key={item.name}>
+          <Tooltip title={item.name} key={item.name} arrow>
             <Image
               src={item.iconLocation}
               width={item.size ? item.size.width : matches ? 48 : 36}
