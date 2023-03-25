@@ -135,7 +135,7 @@ export const themeOptions: ThemeOptions = {
             sm: 600,
             sd: 800,
             md: 900,
-            lg: 1100,
+            lg: 1000,
             xl: 1536,
         },
     },

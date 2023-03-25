@@ -1,7 +1,7 @@
 import { Box, Tooltip, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 
-interface SkillsIcon {
+export interface SkillsIcon {
   iconLocation: string;
   name: string;
   size?: { height: number; width: number };
@@ -119,7 +119,6 @@ export default function Skills() {
               justifyContent: { xs: "center", md: "flex-start" },
               gap: { xs: theme.spacing(1.5), md: theme.spacing(5) },
               width: "100%",
-              //   padding: `0 ${theme.spacing(6)}`,
               flexDirection: { md: "row", xs: "column" },
             }}
           >
