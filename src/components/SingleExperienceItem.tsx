@@ -25,6 +25,7 @@ export default function SingleExperienceItem({
 }: SingleExperienceItemProps) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("xm"));
+
   return (
     <Box
       sx={{

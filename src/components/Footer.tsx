@@ -7,7 +7,6 @@ import Link from "next/link";
 const year = new Date().getFullYear();
 
 export default function Footer() {
-  console.log(year);
   const theme = useTheme();
   return (
     <Box

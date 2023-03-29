@@ -1,4 +1,6 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { useTheme, Box, Typography, useMediaQuery } from "@mui/material";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem, { timelineItemClasses } from "@mui/lab/TimelineItem";
@@ -13,6 +15,56 @@ import { experienceData } from "@/lib/data";
 export default function Experience() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
+  const [ref1, inView1] = useInView({ threshold: 0.2 });
+  const [ref2, inView2] = useInView({ threshold: 0.2 });
+  const [ref3, inView3] = useInView({ threshold: 0.2 });
+  const refs = [ref1, ref2, ref3];
+  const controlsRightElement1 = useAnimation();
+  const controlsRightElement3 = useAnimation();
+  const controlsLeftElement2 = useAnimation();
+  const controls = [
+    controlsRightElement1,
+    controlsLeftElement2,
+    controlsRightElement3,
+  ];
+  const [viewedElements, setViewedElements] = useState([false, false, false]);
+
+  useEffect(() => {
+    if (inView1 && !viewedElements[0]) {
+      controlsRightElement1.start({
+        x: 0,
+        transition: { type: "spring", duration: 1, bounce: 0.1 },
+      });
+      setViewedElements((prevState) => [true, ...prevState.slice(1)]);
+    } else if (!viewedElements[0]) {
+      controlsRightElement1.start({
+        x: "100vw",
+      });
+    }
+    if (inView2 && !viewedElements[1]) {
+      controlsLeftElement2.start({
+        x: 0,
+        transition: { type: "spring", duration: 1, bounce: 0.1 },
+      });
+      setViewedElements((prevState) => [prevState[0], true, prevState[1]]);
+    } else if (!viewedElements[1]) {
+      controlsLeftElement2.start({
+        x: matches ? "-100vw" : "100vw",
+      });
+    }
+    if (inView3 && !viewedElements[2]) {
+      controlsRightElement3.start({
+        x: 0,
+        transition: { type: "spring", duration: 1, bounce: 0.1 },
+      });
+      setViewedElements((prevState) => [prevState[0], prevState[1], true]);
+    } else if (!viewedElements[2]) {
+      controlsRightElement3.start({
+        x: "100vw",
+      });
+    }
+  }, [inView1, inView2, inView3]);
+
   return (
     <Box
       sx={{
@@ -44,7 +96,7 @@ export default function Experience() {
             },
           }}
         >
-          {experienceData.map((item) => (
+          {experienceData.map((item, index) => (
             <TimelineItem key={item.date}>
               {matches && (
                 <TimelineOppositeContent
@@ -60,6 +112,7 @@ export default function Experience() {
                         : "flex-start"
                     }`,
                   }}
+                  ref={refs[index]}
                 >
                   {item.date}
                 </TimelineOppositeContent>
@@ -71,13 +124,15 @@ export default function Experience() {
                 />
               </TimelineSeparator>
               <TimelineContent>
-                <SingleExperienceItem
-                  title={item.title}
-                  company={item.company}
-                  description={item.description}
-                  skills={item.skills}
-                  flexDirectionSkills={item.flexDirectionSkills}
-                />
+                <Box component={motion.div} animate={controls[index]}>
+                  <SingleExperienceItem
+                    title={item.title}
+                    company={item.company}
+                    description={item.description}
+                    skills={item.skills}
+                    flexDirectionSkills={item.flexDirectionSkills}
+                  />
+                </Box>
                 {!matches && (
                   <Typography
                     component="p"
@@ -87,6 +142,7 @@ export default function Experience() {
                       color: "text.secondary",
                       mt: theme.spacing(0.5),
                     }}
+                    ref={refs[index]}
                   >
                     {item.date}
                   </Typography>
