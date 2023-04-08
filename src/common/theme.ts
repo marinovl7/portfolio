@@ -48,27 +48,14 @@ export const themeOptions: ThemeOptions = {
                 }
             }
         },
-        MuiTab: {
+        MuiTooltip: {
             styleOverrides: {
-                root: {
-                    "&.Mui-selected": {
-                        backgroundColor: "#fff !important",
-                    },
-                    "&.Mui-disabled": {
-                        color: "#83a9d1 !important",
-                        cursor: 'not-allowed',
-                        pointerEvents: 'all !important'
-                    },
-                    fontSize: '1.2rem',
-                    color: '#3070B3 !important'
-                }
-            }
-        },
-        MuiTabs: {
-            styleOverrides: {
-                indicator: {
-                    backgroundColor: '#3070B3'
-                }
+                tooltip: {
+                    backgroundColor: '#5E548E'
+                },
+                arrow: {
+                    color: '#5E548E'
+                },
             }
         },
         MuiButton: {
@@ -79,33 +66,12 @@ export const themeOptions: ThemeOptions = {
                 root: {
                     lineHeight: 1.5,
                     borderWidth: 4,
-                    "&.Mui-disabled": {
-                        backgroundColor: "#598dc2 !important",
-                        cursor: 'not-allowed',
-                        pointerEvents: 'all !important',
-                        color: '#fff'
-                    },
                 },
                 textPrimary: {
                     color: '#ffffff',
                 },
-                contained: {
-                    "&:hover": {
-                        backgroundColor: '#14519A'
-                    },
-                    borderRadius: '12px'
-                },
             },
         },
-        MuiCheckbox: {
-            styleOverrides: {
-                root: {
-                    "&.Mui-checked": {
-                        color: "#3070B3 !important",
-                    },
-                }
-            }
-        }
     },
     typography: {
         h1: { fontFamilyName },

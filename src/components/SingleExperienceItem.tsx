@@ -16,6 +16,8 @@ interface SingleExperienceItemProps {
   flexDirectionSkills: string;
 }
 
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
+
 export default function SingleExperienceItem({
   title,
   company,
@@ -74,7 +76,7 @@ export default function SingleExperienceItem({
         {skills.map((item) => (
           <Tooltip title={item.name} key={item.name} arrow>
             <Image
-              src={item.iconLocation}
+              src={`${assetPrefix}${item.iconLocation}`}
               width={item.size ? item.size.width : matches ? 48 : 36}
               height={item.size ? item.size.height : matches ? 48 : 36}
               alt={item.name}

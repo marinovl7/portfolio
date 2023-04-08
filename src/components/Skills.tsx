@@ -11,6 +11,8 @@ export interface SkillsIcon {
   size?: { height: number; width: number };
 }
 
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Skills() {
   const theme = useTheme();
   const [ref1, inView1] = useInView({ threshold: 0.2 });
@@ -122,7 +124,7 @@ export default function Skills() {
               {stack.skills.map((item) => (
                 <Tooltip title={item.name} key={item.name} arrow>
                   <Image
-                    src={item.iconLocation}
+                    src={`${assetPrefix}${item.iconLocation}`}
                     width={item.size ? item.size.width : 64}
                     height={item.size ? item.size.height : 64}
                     alt={item.name}

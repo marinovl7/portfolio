@@ -73,7 +73,7 @@ export const projectsData: ProjectCardProps[] = [
             "Next.js static website for daily meals in some student places around Munich, which I build and designed myself. The website is available in german and english.",
         imgSrc: "/TUMenu.png",
         githubLink: "https://github.com/TUM-Dev/TUMenu",
-        websiteLink: "/projects#tumenu",
+        websiteLink: "https://tum-dev.github.io/TUMenu",
     },
     {
         title: "Podkrepi.bg",
@@ -81,7 +81,7 @@ export const projectsData: ProjectCardProps[] = [
             "Bulgarian online charity platform, build with Next.js, Nest.js, Prisma and MUI. I contributed both on the back and frontend on several features and issues",
         imgSrc: "/Podkrepibg.png",
         githubLink: "https://github.com/podkrepi-bg",
-        websiteLink: "/projects#podkrepiBG",
+        websiteLink: "https://podkrepi.bg/en",
     },
     {
         title: "Kitsby Project",
@@ -89,7 +89,6 @@ export const projectsData: ProjectCardProps[] = [
             "Angular, Node.js MongoDB CRUD Webapplication with many features like admin panel, also JWT tokens login and signup. I build this for experience.",
         imgSrc: "/KitsbyProject.png",
         githubLink: "https://github.com/marinovl7/Kitsby-Project-front-end",
-        websiteLink: "/projects#kitsby",
     },
     {
         title: "RozaX5",
@@ -97,7 +96,7 @@ export const projectsData: ProjectCardProps[] = [
             "This is my first project. A static website for a bulgarian brand build with the bare basics HTML,CSS,JS and jQuery. I also designed the website myself",
         imgSrc: "/rozax5.png",
         githubLink: "https://github.com/marinovl7/roza_x5_static_website",
-        websiteLink: "/projects#rozax5",
+        websiteLink: "https://rozax5.com/",
     },
     {
         title: "Auctify",
@@ -105,7 +104,6 @@ export const projectsData: ProjectCardProps[] = [
             "Auctify is a hackaTUM project. We had less than 48 hours to build the product, working in a team of 4. The webapp is build with React, MUI, Node.js and MongoDB",
         imgSrc: "/Auctify.png",
         githubLink: "https://github.com/marinovl7/hackaTUM-2022-auctify",
-        websiteLink: "/projects#auctify",
     },
     {
         title: "This website",
@@ -113,7 +111,6 @@ export const projectsData: ProjectCardProps[] = [
             "It's build with Next.js and MUI and of course I wanted to make it as creative as possible. If you like it, it is open-source so feel free to get inspiration and ofc star it.",
         imgSrc: "/portfolio.png",
         githubLink: "https://github.com/marinovl7/portfolio",
-        websiteLink: "/projects#auctify",
     },
 ];
 

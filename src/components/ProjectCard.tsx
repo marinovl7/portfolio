@@ -28,8 +28,9 @@ export interface ProjectCardProps {
   description: string;
   imgSrc: string;
   githubLink: string;
-  websiteLink: string;
+  websiteLink?: string;
 }
+const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export default function ProjectCard({
   title,
@@ -62,7 +63,7 @@ export default function ProjectCard({
           alt={title}
           height={170}
           width={isBelowLg ? 315 : 350}
-          src={imgSrc}
+          src={`${assetPrefix}${imgSrc}`}
         />
       </CardMedia>
       <CardContent>
@@ -87,11 +88,13 @@ export default function ProjectCard({
             <GitHubIcon />
           </Link>
         </Tooltip>
-        <Tooltip title="Learn more" arrow>
-          <Link href={websiteLink} target="_blank">
-            <OpenInNewIcon />
-          </Link>
-        </Tooltip>
+        {websiteLink && (
+          <Tooltip title="Learn more" arrow>
+            <Link href={websiteLink} target="_blank">
+              <OpenInNewIcon />
+            </Link>
+          </Tooltip>
+        )}
       </CardActions>
     </Card>
   );
