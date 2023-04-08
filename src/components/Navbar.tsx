@@ -17,6 +17,7 @@ import LaptopIcon from "@mui/icons-material/Laptop";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import BallotIcon from "@mui/icons-material/Ballot";
 import DeveloperModeIcon from "@mui/icons-material/DeveloperMode";
+import ScrollIntoView from "react-scroll-into-view";
 
 export default function ResponsiveAppBar() {
   const theme = useTheme();
@@ -25,8 +26,12 @@ export default function ResponsiveAppBar() {
     null
   );
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+  const handleToggleNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    if (anchorElNav) {
+      setAnchorElNav(null);
+    } else {
+      setAnchorElNav(event.currentTarget);
+    }
   };
 
   const handleCloseNavMenu = () => {
@@ -76,13 +81,14 @@ export default function ResponsiveAppBar() {
               size="large"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={handleToggleNavMenu}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
+              disableScrollLock={false}
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
@@ -96,47 +102,63 @@ export default function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
+                position: "absolute" as "absolute",
               }}
             >
-              <MenuItem
-                key={"Skills"}
+              <ScrollIntoView
+                smooth
+                selector="#skills"
                 onClick={handleCloseNavMenu}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: theme.spacing(2),
-                }}
               >
-                <PermIdentityIcon />
-                <Typography textAlign="center">Skills</Typography>
-              </MenuItem>
-              <MenuItem
-                key={"Experience"}
+                <MenuItem
+                  key={"Skills"}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: theme.spacing(2),
+                  }}
+                >
+                  <PermIdentityIcon />
+                  <Typography textAlign="center">Skills</Typography>
+                </MenuItem>
+              </ScrollIntoView>
+              <ScrollIntoView
+                smooth
+                selector="#experience"
                 onClick={handleCloseNavMenu}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: theme.spacing(2),
-                }}
               >
-                <BallotIcon />
-                <Typography textAlign="center">Experience</Typography>
-              </MenuItem>
-              <MenuItem
-                key={"Projects"}
+                <MenuItem
+                  key={"Experience"}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: theme.spacing(2),
+                  }}
+                >
+                  <BallotIcon />
+                  <Typography textAlign="center">Experience</Typography>
+                </MenuItem>
+              </ScrollIntoView>
+              <ScrollIntoView
+                smooth
+                selector="#projects"
                 onClick={handleCloseNavMenu}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  gap: theme.spacing(2),
-                }}
               >
-                <DeveloperModeIcon />
-                <Typography textAlign="center">Projects</Typography>
-              </MenuItem>
+                <MenuItem
+                  key={"Projects"}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: theme.spacing(2),
+                  }}
+                >
+                  <DeveloperModeIcon />
+                  <Typography textAlign="center">Projects</Typography>
+                </MenuItem>
+              </ScrollIntoView>
             </Menu>
           </Box>
           <LaptopIcon
@@ -173,54 +195,60 @@ export default function ResponsiveAppBar() {
               gap: theme.spacing(3),
             }}
           >
-            <Button
-              key={"Skills"}
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "white",
-                fontSize: theme.spacing(2.5),
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: theme.spacing(1),
-              }}
-            >
-              <PermIdentityIcon />
-              Skills
-            </Button>
-            <Button
-              key={"Experience"}
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "white",
-                fontSize: theme.spacing(2.5),
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: theme.spacing(1),
-              }}
-            >
-              <BallotIcon />
-              Experience
-            </Button>
-            <Button
-              key={"Projects"}
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "white",
-                fontSize: theme.spacing(2.5),
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: theme.spacing(1),
-              }}
-            >
-              <DeveloperModeIcon />
-              Projects
-            </Button>
+            <ScrollIntoView smooth selector="#skills">
+              <Button
+                key={"Skills"}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  fontSize: theme.spacing(2.5),
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: theme.spacing(1),
+                }}
+              >
+                <PermIdentityIcon />
+                Skills
+              </Button>
+            </ScrollIntoView>
+            <ScrollIntoView smooth selector="#experience">
+              <Button
+                key={"Experience"}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  fontSize: theme.spacing(2.5),
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: theme.spacing(1),
+                }}
+              >
+                <BallotIcon />
+                Experience
+              </Button>
+            </ScrollIntoView>
+            <ScrollIntoView smooth selector="#projects">
+              <Button
+                key={"Projects"}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  fontSize: theme.spacing(2.5),
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: theme.spacing(1),
+                }}
+              >
+                <DeveloperModeIcon />
+                Projects
+              </Button>
+            </ScrollIntoView>
           </Box>
         </Toolbar>
       </Container>

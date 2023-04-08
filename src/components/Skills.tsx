@@ -1,6 +1,9 @@
 import { Box, Tooltip, Typography, useTheme } from "@mui/material";
 import Image from "next/image";
 import { techStackData } from "@/lib/data";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
 
 export interface SkillsIcon {
   iconLocation: string;
@@ -10,6 +13,21 @@ export interface SkillsIcon {
 
 export default function Skills() {
   const theme = useTheme();
+  const [ref1, inView1] = useInView({ threshold: 0.2 });
+  const controls = useAnimation();
+  const [animationTriggered, setAnimationTriggered] = useState(false);
+
+  useEffect(() => {
+    if (inView1 && !animationTriggered) {
+      setAnimationTriggered(true);
+    }
+  }, [inView1]);
+
+  const variants = {
+    hidden: { opacity: 0, y: "100px" },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <Box
       sx={{
@@ -20,6 +38,7 @@ export default function Skills() {
         marginTop: `${theme.spacing(12)}`,
         backgroundImage: "url(/background_about.svg)",
       }}
+      id="skills"
     >
       <Box
         sx={{
@@ -40,7 +59,11 @@ export default function Skills() {
             gap: theme.spacing(1.5),
           }}
         >
-          <Typography variant="h2" sx={{ color: theme.palette.primary.light }}>
+          <Typography
+            variant="h2"
+            sx={{ color: theme.palette.primary.light }}
+            ref={ref1}
+          >
             What I do
           </Typography>
           <Typography
@@ -55,7 +78,7 @@ export default function Skills() {
           </Typography>
         </Box>
 
-        {techStackData.map((stack) => (
+        {techStackData.map((stack, index) => (
           <Box
             key={stack.name}
             sx={{
@@ -65,6 +88,16 @@ export default function Skills() {
               gap: { xs: theme.spacing(1.5), md: theme.spacing(5) },
               width: "100%",
               flexDirection: { md: "row", xs: "column" },
+            }}
+            component={motion.div}
+            variants={variants}
+            initial="hidden"
+            animate={inView1 ? "visible" : "hidden"}
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{
+              delay: index * 0.15,
+              duration: "1",
             }}
           >
             <Typography

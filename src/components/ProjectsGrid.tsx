@@ -1,6 +1,7 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import ProjectCard from "./ProjectCard";
 import { projectsData } from "@/lib/data";
+import { motion } from "framer-motion";
 
 export default function ProjectsGrid() {
   const theme = useTheme();
@@ -14,6 +15,7 @@ export default function ProjectsGrid() {
         marginTop: `${theme.spacing(12)}`,
         backgroundImage: "url(/background_about.svg)",
       }}
+      id="projects"
     >
       <Box
         sx={{
@@ -53,7 +55,7 @@ export default function ProjectsGrid() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: theme.spacing(4),
+            gap: theme.spacing(6),
             flexWrap: "wrap",
           }}
         >

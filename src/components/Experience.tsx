@@ -33,7 +33,7 @@ export default function Experience() {
     if (inView1 && !viewedElements[0]) {
       controlsRightElement1.start({
         x: 0,
-        transition: { type: "spring", duration: 1, bounce: 0.1 },
+        transition: { duration: 1, bounce: 0.1 },
       });
       setViewedElements((prevState) => [true, ...prevState.slice(1)]);
     } else if (!viewedElements[0]) {
@@ -44,7 +44,7 @@ export default function Experience() {
     if (inView2 && !viewedElements[1]) {
       controlsLeftElement2.start({
         x: 0,
-        transition: { type: "spring", duration: 1, bounce: 0.1 },
+        transition: { duration: 1, bounce: 0.1 },
       });
       setViewedElements((prevState) => [prevState[0], true, prevState[1]]);
     } else if (!viewedElements[1]) {
@@ -73,6 +73,7 @@ export default function Experience() {
         justifyContent: "center",
         padding: `0 ${theme.spacing(6)} ${theme.spacing(6)}`,
       }}
+      id="experience"
     >
       <Box
         sx={{

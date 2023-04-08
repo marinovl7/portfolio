@@ -25,6 +25,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
     "react-intersection-observer": "^9.4.3",
+    "react-scroll-into-view": "^1.12.0",
+    "react-spring": "^9.7.1",
     "typescript": "4.8.4",
     "typewriter-effect": "^2.19.0"
   }
