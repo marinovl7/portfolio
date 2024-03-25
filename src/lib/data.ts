@@ -8,20 +8,23 @@ interface Experience {
     date: string;
     title: string;
     company: string;
-    description: string;
+    description: string[];
     skills: SkillsIcon[];
     flexDirectionSkills: string;
 }
 
 export const experienceData: Experience[] = [
     {
-        date: "March 2023 - Present",
-        title: "Fullstack developer Intern",
+        date: "April 2024 - Present",
+        title: "Associate Fullstack Software Developer",
         company: "Siemens",
-        description:
-            "As a fullstack developer intern, I am gaining valuable experience working on a variety of cloud-based web applications. I am proficient in both front-end and back-end development, and have contributed to numerous projects during my time as an intern.",
+        description: [
+            "Working on a variety of cloud-based web applications by either developing and delivering them from scratch or extending existing ones.",
+            "Refactoring of old, outdated applications to modern, design and code, style standart.",
+        ],
         skills: [
             { iconLocation: "/angular-icon.svg", name: "Angular" },
+            { iconLocation: "/ngxs.png", name: "NGXS" },
             { iconLocation: "/nestjs.svg", name: "Nest.js" },
             { iconLocation: "/serverless.svg", name: "Serverless" },
             { iconLocation: "/aws.svg", name: "AWS" },
@@ -30,11 +33,35 @@ export const experienceData: Experience[] = [
         flexDirectionSkills: "flex-start",
     },
     {
+        date: "March 2023 - March 2024",
+        title: "Fullstack Software Developer Intern",
+        company: "Siemens",
+        description: [
+            "Introduced new feature for saving and applying custom table filters for multiple tenants by integrating DynamoDB for data-flexibility.",
+            "Being involved of refactoring Angular 8 application to Angular 15, by using modern approaches such as state management, type-safety and generic components, whilst improving the UI/UX.",
+            "Development of an external AWS lambda function for a complex accounting process.",
+            "Working across different teams from different locations, whilst always being in touch with Sales."
+        ],
+        skills: [
+            { iconLocation: "/angular-icon.svg", name: "Angular" },
+            { iconLocation: "/ngxs.png", name: "NGXS" },
+            { iconLocation: "/nestjs.svg", name: "Nest.js" },
+            { iconLocation: "/serverless.svg", name: "Serverless" },
+            { iconLocation: "/aws.svg", name: "AWS" },
+            { iconLocation: "/postgresql.svg", name: "PosgreSQL" },
+        ],
+        flexDirectionSkills: "flex-end",
+    },
+    {
         date: "Octomber 2022 - Present",
-        title: "Open-source developer",
+        title: "Open Source Software Developer",
         company: "Freelance",
-        description:
-            "As an open source developer, I have had the privilege of contributing to a diverse range of highly impactful projects. One such project was a grand-scale bulgarian charity platform. Additionally, I have also been engaged in the development of a cutting-edge Next.js based static website, which elegantly showcases the daily menus for a selection of esteemed student canteens in the city of Munich and many more.",
+        description: [
+            "Contributed to a grand-scale bulgarian charity web-platform, by developing user donations page.",
+            "Ownership of cutting-edge Next.js based static website, which elegantly showcases the daily menus for a selection of esteemed student canteens in the city of Munich.",
+            "Development of a static website for a bulgarian brand with focus on modern, but elegant design.",
+            "Development of a personal projec using the MEAN stack."
+        ],
         skills: [
             { iconLocation: "/nextjs-icon.svg", name: "Next.js" },
             { iconLocation: "/nestjs.svg", name: "Nest.js" },
@@ -45,21 +72,23 @@ export const experienceData: Experience[] = [
             { iconLocation: "/material-ui.svg", name: "Material UI" },
             { iconLocation: "/figma.svg", name: "Figma" },
         ],
-        flexDirectionSkills: "flex-end",
+        flexDirectionSkills: "flex-start",
     },
     {
         date: "September 2022 - December 2022",
-        title: "React developer (external)",
+        title: "React Software Developer (external)",
         company: "Mercedes-Benz AG",
-        description:
-            "The project, a collaboration between TUM, Mercedes-Benz, and Salesforce, aimed to develop a React-based application that would revolutionize the way users configure their future vehicles. Utilizing cutting-edge technology, the application was able to understand and respond to user requests, resulting in an effortless and seamless configuration experience. As a member of the team, I was responsible for working on the car configuration aspect of the project.",
+        description: [
+            "Developed a React-based application that would revolutionize the way users configure their future vehicles.",
+            "Utilizing cutting-edge technology, the application was able to understand and respond to user requests, resulting in an effortless and seamless configuration experience."
+        ],
         skills: [
             { iconLocation: "/react.svg", name: "React" },
             { iconLocation: "/redux.svg", name: "Redux" },
             { iconLocation: "/css-3.svg", name: "CSS3" },
             { iconLocation: "/figma.svg", name: "Figma" },
         ],
-        flexDirectionSkills: "flex-start",
+        flexDirectionSkills: "flex-end",
     },
 ];
 
@@ -99,18 +128,19 @@ export const projectsData: ProjectCardProps[] = [
         websiteLink: "https://rozax5.com/",
     },
     {
-        title: "Auctify",
-        description:
-            "Auctify is a hackaTUM project. We had less than 48 hours to build the product, working in a team of 4. The webapp is build with React, MUI, Node.js and MongoDB",
-        imgSrc: "/Auctify.png",
-        githubLink: "https://github.com/marinovl7/hackaTUM-2022-auctify",
-    },
-    {
         title: "This website",
         description:
             "It's build with Next.js and MUI and of course I wanted to make it as creative as possible. If you like it, it is open-source so feel free to get inspiration and ofc star it.",
         imgSrc: "/portfolio.png",
         githubLink: "https://github.com/marinovl7/portfolio",
+    },
+    {
+        title: "ProteomicsDB",
+        description:
+            "Extended the user-interface by providing researches with further data-analysis possibilities, based on interactive data-visualization with D3.js and Vue.js for my Bachelor Thesis.",
+        imgSrc: "/CellLineScatterPlot.png",
+        websiteLink: "https://www.proteomicsdb.org/",
+        githubLink: "https://github.com/wilhelm-lab/proteomicsdb-vue",
     },
 ];
 
@@ -134,6 +164,7 @@ const frameworks: SkillsIcon[] = [
     { iconLocation: "/react.svg", name: "React" },
     { iconLocation: "/angular-icon.svg", name: "Angular" },
     { iconLocation: "/nextjs-icon.svg", name: "Next.js" },
+    { iconLocation: "/vue.png", name: "Vue.js" },
     { iconLocation: "/nodejs.svg", name: "Node.js" },
     { iconLocation: "/nestjs.svg", name: "Nest.js" },
     { iconLocation: "/serverless.svg", name: "Serverless" },
@@ -145,6 +176,8 @@ const libraries: SkillsIcon[] = [
     { iconLocation: "/redux.svg", name: "Redux" },
     { iconLocation: "/reactivex.svg", name: "RxJs" },
     { iconLocation: "/badge.svg", name: "NgRx" },
+    { iconLocation: "/ngxs.png", name: "NGXS" },
+    { iconLocation: "/d3.png", name: "D3.js" },
 ];
 
 const design: SkillsIcon[] = [{ iconLocation: "/figma.svg", name: "Figma" }];

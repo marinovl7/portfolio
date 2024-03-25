@@ -11,9 +11,8 @@ import { SkillsIcon } from "./Skills";
 interface SingleExperienceItemProps {
   title: string;
   company: string;
-  description: string;
+  description: string[];
   skills: SkillsIcon[];
-  flexDirectionSkills: string;
 }
 
 const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH || ''
@@ -23,7 +22,6 @@ export default function SingleExperienceItem({
   company,
   description,
   skills,
-  flexDirectionSkills,
 }: SingleExperienceItemProps) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("xm"));
@@ -59,18 +57,19 @@ export default function SingleExperienceItem({
           {company}
         </Typography>
       </Box>
-      <Typography
+      {description.map(item => <Typography
+        key={item}
         variant="subtitle1"
         sx={{ color: theme.palette.primary.dark, lineHeight: 1.2 }}
       >
-        {description}
-      </Typography>
+        &mdash; {item}
+      </Typography>)}
       <Box
         sx={{
           display: "flex",
           alignItems: "center",
           gap: theme.spacing(1),
-          justifyContent: { xs: "flex-start", lg: flexDirectionSkills },
+          justifyContent: "flex-start",
         }}
       >
         {skills.map((item) => (

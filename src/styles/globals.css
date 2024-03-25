@@ -16,3 +16,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.MuiTimelineItem-root:nth-of-type(even) .MuiTimelineContent-root {
+  text-align: left !important;
+}

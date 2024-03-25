@@ -131,7 +131,6 @@ export default function Experience() {
                     company={item.company}
                     description={item.description}
                     skills={item.skills}
-                    flexDirectionSkills={item.flexDirectionSkills}
                   />
                 </Box>
                 {!matches && (

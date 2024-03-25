@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Lachezar Marinov - &mdash; Portfolio</title>
+        <title>Lachezar Marinov &mdash; Portfolio</title>
         <meta name="description" content="Lachezar Marinov portflio website" />
       </Head>
       <ResponsiveAppBar />
