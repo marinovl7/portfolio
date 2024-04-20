@@ -18,16 +18,19 @@ export default function Experience() {
   const [ref1, inView1] = useInView({ threshold: 0.2 });
   const [ref2, inView2] = useInView({ threshold: 0.2 });
   const [ref3, inView3] = useInView({ threshold: 0.2 });
-  const refs = [ref1, ref2, ref3];
+  const [ref4, inView4] = useInView({ threshold: 0.2 });
+  const refs = [ref1, ref2, ref3, ref4];
   const controlsRightElement1 = useAnimation();
-  const controlsRightElement3 = useAnimation();
   const controlsLeftElement2 = useAnimation();
+  const controlsRightElement3 = useAnimation();
+  const controlsLeftElement4 = useAnimation();
   const controls = [
     controlsRightElement1,
     controlsLeftElement2,
     controlsRightElement3,
+    controlsLeftElement4,
   ];
-  const [viewedElements, setViewedElements] = useState([false, false, false]);
+  const [viewedElements, setViewedElements] = useState([false, false, false, false]);
 
   useEffect(() => {
     if (inView1 && !viewedElements[0]) {
@@ -63,7 +66,18 @@ export default function Experience() {
         x: "100vw",
       });
     }
-  }, [inView1, inView2, inView3]);
+    if (inView4 && !viewedElements[3]) {
+      controlsLeftElement4.start({
+        x: 0,
+        transition: { duration: 1, bounce: 0.1 },
+      });
+      setViewedElements((prevState) => [...prevState.slice(0, 3), true]);
+    } else if (!viewedElements[3]) {
+      controlsLeftElement4.start({
+        x: matches ? "-100vw" : "100vw",
+      });
+    }
+  }, [inView1, inView2, inView3, inView4]);
 
   return (
     <Box
