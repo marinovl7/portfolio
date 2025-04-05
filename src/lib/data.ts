@@ -15,7 +15,46 @@ interface Experience {
 
 export const experienceData: Experience[] = [
     {
-        date: "April 2024 - Present",
+        date: "Feb 2025 - Present",
+        title: "Frontend Lead | Software Engineer",
+        company: "Siemens",
+        description: [
+            "Establishing technical standards for all frontend applications",
+            "Guiding a team of 10+ developers in implementing best practices and modern frameworks",
+            "Leading architecture decisions and ensuring code quality across projects"
+        ],
+        skills: [
+            { iconLocation: "/angular-icon.svg", name: "Angular" },
+            { iconLocation: "/ngxs.png", name: "NGXS" },
+            { iconLocation: "/nestjs.svg", name: "Nest.js" },
+            { iconLocation: "/serverless.svg", name: "Serverless" },
+            { iconLocation: "/aws.svg", name: "AWS" },
+            { iconLocation: "/postgresql.svg", name: "PosgreSQL" },
+        ],
+        flexDirectionSkills: "flex-start",
+    },
+    {
+        date: "Oct 2024 - Feb 2025",
+        title: "Technical Project Manager",
+        company: "World Food Programme",
+        description: [
+            "Project management for the new release of the WFP HungerMap platform in collaboration with CSEE.",
+            "Managing 3 Teams of 15 Developers.",
+            "Responsible for the technical implementation and the business outcome.",
+            "Complete redesign of the UI with focus on accessibility and exceptional UX.",
+            "Extended it with AI RAG Chatbot, AI-based prediction model integrated with a custom email service for early-warning alerts."
+        ],
+        skills: [
+            { iconLocation: "/nextjs-icon.svg", name: "Next.js" },
+            { iconLocation: "/python.webp", name: "Python" },
+            { iconLocation: "/openai.svg", name: "OpenAI" },
+            { iconLocation: "/mongodb.svg", name: "MongoDB" },
+            { iconLocation: "/tailwindcss.png", name: "TailwindCSS" },
+        ],
+        flexDirectionSkills: "flex-end",
+    },
+    {
+        date: "April 2024 - January 2025",
         title: "Associate Fullstack Software Developer",
         company: "Siemens",
         description: [
@@ -169,6 +208,7 @@ const frameworks: SkillsIcon[] = [
     { iconLocation: "/nestjs.svg", name: "Nest.js" },
     { iconLocation: "/serverless.svg", name: "Serverless" },
     { iconLocation: "/spring-icon.svg", name: "Spring Boot" },
+    { iconLocation: "/tailwindcss.png", name: "TailwindCSS" },
 ];
 
 const libraries: SkillsIcon[] = [
@@ -190,6 +230,7 @@ const technical: SkillsIcon[] = [
 
 const dataManagement: SkillsIcon[] = [
     { iconLocation: "/postgresql.svg", name: "PosgreSQL" },
+    { iconLocation: "/mongodb.svg", name: "MongoDB" },
     {
         iconLocation: "/Logo-Prisma.png",
         name: "Prisma",

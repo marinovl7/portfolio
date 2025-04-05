@@ -15,69 +15,52 @@ import { experienceData } from "@/lib/data";
 export default function Experience() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
+
   const [ref1, inView1] = useInView({ threshold: 0.2 });
   const [ref2, inView2] = useInView({ threshold: 0.2 });
   const [ref3, inView3] = useInView({ threshold: 0.2 });
   const [ref4, inView4] = useInView({ threshold: 0.2 });
-  const refs = [ref1, ref2, ref3, ref4];
-  const controlsRightElement1 = useAnimation();
-  const controlsLeftElement2 = useAnimation();
-  const controlsRightElement3 = useAnimation();
-  const controlsLeftElement4 = useAnimation();
-  const controls = [
-    controlsRightElement1,
-    controlsLeftElement2,
-    controlsRightElement3,
-    controlsLeftElement4,
-  ];
-  const [viewedElements, setViewedElements] = useState([false, false, false, false]);
+  const [ref5, inView5] = useInView({ threshold: 0.2 });
+  const [ref6, inView6] = useInView({ threshold: 0.2 });
+
+  const refs = [ref1, ref2, ref3, ref4, ref5, ref6];
+
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+  const controls5 = useAnimation();
+  const controls6 = useAnimation();
+
+  const controls = [controls1, controls2, controls3, controls4, controls5, controls6];
+
+  const [viewedElements, setViewedElements] = useState([false, false, false, false, false, false]);
 
   useEffect(() => {
-    if (inView1 && !viewedElements[0]) {
-      controlsRightElement1.start({
-        x: 0,
-        transition: { duration: 1, bounce: 0.1 },
-      });
-      setViewedElements((prevState) => [true, ...prevState.slice(1)]);
-    } else if (!viewedElements[0]) {
-      controlsRightElement1.start({
-        x: "100vw",
-      });
-    }
-    if (inView2 && !viewedElements[1]) {
-      controlsLeftElement2.start({
-        x: 0,
-        transition: { duration: 1, bounce: 0.1 },
-      });
-      setViewedElements((prevState) => [prevState[0], true, prevState[1]]);
-    } else if (!viewedElements[1]) {
-      controlsLeftElement2.start({
-        x: matches ? "-100vw" : "100vw",
-      });
-    }
-    if (inView3 && !viewedElements[2]) {
-      controlsRightElement3.start({
-        x: 0,
-        transition: { type: "spring", duration: 1, bounce: 0.1 },
-      });
-      setViewedElements((prevState) => [prevState[0], prevState[1], true]);
-    } else if (!viewedElements[2]) {
-      controlsRightElement3.start({
-        x: "100vw",
-      });
-    }
-    if (inView4 && !viewedElements[3]) {
-      controlsLeftElement4.start({
-        x: 0,
-        transition: { duration: 1, bounce: 0.1 },
-      });
-      setViewedElements((prevState) => [...prevState.slice(0, 3), true]);
-    } else if (!viewedElements[3]) {
-      controlsLeftElement4.start({
-        x: matches ? "-100vw" : "100vw",
-      });
-    }
-  }, [inView1, inView2, inView3, inView4]);
+    const animations = [inView1, inView2, inView3, inView4, inView5, inView6];
+
+    animations.forEach((inView, index) => {
+      if (inView && !viewedElements[index]) {
+        controls[index].start({
+          x: 0,
+          transition: { duration: 1, bounce: 0.1 },
+        });
+        setViewedElements((prev) => {
+          const updated = [...prev];
+          updated[index] = true;
+          return updated;
+        });
+      } else if (!viewedElements[index]) {
+        controls[index].start({
+          x: matches
+            ? index % 2 === 0
+              ? "100vw"
+              : "-100vw"
+            : "100vw",
+        });
+      }
+    });
+  }, [inView1, inView2, inView3, inView4, inView5, inView6, matches]);
 
   return (
     <Box
@@ -102,6 +85,7 @@ export default function Experience() {
         <Typography variant="h2" sx={{ color: theme.palette.primary.light }}>
           Experience
         </Typography>
+
         <Timeline
           position={matches ? "alternate" : "right"}
           sx={{
@@ -121,11 +105,10 @@ export default function Experience() {
                     fontSize: theme.spacing(2.5),
                     display: "flex",
                     alignItems: "flex-end",
-                    justifyContent: `${
+                    justifyContent:
                       item.flexDirectionSkills === "flex-start"
                         ? "flex-end"
-                        : "flex-start"
-                    }`,
+                        : "flex-start",
                   }}
                   ref={refs[index]}
                 >
@@ -134,9 +117,7 @@ export default function Experience() {
               )}
               <TimelineSeparator>
                 <TimelineConnector />
-                <TimelineDot
-                  sx={{ backgroundColor: theme.palette.primary.main }}
-                />
+                <TimelineDot sx={{ backgroundColor: theme.palette.primary.main }} />
               </TimelineSeparator>
               <TimelineContent>
                 <Box component={motion.div} animate={controls[index]}>
